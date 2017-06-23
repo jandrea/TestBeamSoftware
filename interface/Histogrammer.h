@@ -22,18 +22,27 @@ class Histogrammer {
     void bookTrackMatchHistograms();
     void bookTrackFitHistograms(float, float, int);
     void bookTelescopeAnalysisHistograms();
+    void bookFeI4Histograms();
+    void bookCBCHistograms(std::string cbc);
     TH1* GetHistoByName(const char*, const char* );
     TH1* GetHistoByName(const std::string& dir, const std::string& hname);
+
+    TH2* Get2DHistoByName(const char*, const char* );
+    TH2* Get2DHistoByName(const std::string& dir, const std::string& hname);
+
+    TProfile* GetProfileByName(const char*, const char* );
+    TProfile* GetProfileByName(const std::string& dir, const std::string& hname);
+
     void FillAlignmentOffsetVsZ(const char*, const char*, int, float, float, float);
 
 
     template <class T>
-    void fillHist1D(const char* dir, const char* histo, T val) {
+    void fillHist1D(const char* dir, const char* histo, T val, double w=1.0) {
       fout_->cd(dir);
       Utility::fillHist1D(histo, val);
     }
     template <class T>
-    void fillHist1D(const std::string& dir, const std::string& histo, T val) {
+    void fillHist1D(const std::string& dir, const std::string& histo, T val, double w=1.0) {
       fillHist1D(dir.c_str(), histo.c_str(), val);
     }
     template <class T1, class T2>

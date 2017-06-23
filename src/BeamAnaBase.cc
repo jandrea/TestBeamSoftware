@@ -87,6 +87,7 @@ bool BeamAnaBase::readJob(const std::string jfile) {
       else if(key=="channelMaskFile")  chmaskFilename_ = value;
       else if(key=="nStrips") nStrips_ = atoi(value.c_str());
       else if(key=="pitchDUT") pitchDUT_ = std::atof(value.c_str());
+      else if(key=="maximumEVT") maxEvent_ = std::atoi(value.c_str());
     }
   }
   jobcardFile.close();
@@ -150,6 +151,7 @@ void BeamAnaBase::beginJob(){
     exit(1);
   }
   hout_ = new Histogrammer(outFilename_);
+  //  cout<<hout_->hfile()<<endl;
 }
 bool BeamAnaBase::setInputFile(const std::string& fname) {
   fin_ = TFile::Open(fname.c_str());
@@ -364,14 +366,19 @@ bool BeamAnaBase::isTrkfiducial(const double xtrk0Pos, const double xtrk1Pos, co
   if( (std::fabs(xtrk0Pos) > pitchDUT_*nStrips_/2.) 
      || (std::fabs(xtrk1Pos) > pitchDUT_*nStrips_/2.))  return false;
   //DUT y acceptance
+#if defined(OCT_16) || defined(MAY_16)
   if(std::fabs(ytrk0Pos) > 25. || std::fabs(ytrk1Pos) > 25.)  return false; 
-
+#elif NOV_15
+  if(std::fabs(ytrk0Pos) > 25. || std::fabs(ytrk1Pos) > 25.)  return false;
+#endif
   if(doChannelMasking_) {
     int xtkdutStrip0 = xtrk0Pos/pitchDUT_ + nStrips_/2; 
     int xtkdutStrip1 = xtrk1Pos/pitchDUT_ + nStrips_/2; 
     bool mtk = std::find(dut_maskedChannels_->at("det0").begin(), dut_maskedChannels_->at("det0").end(), xtkdutStrip0) == dut_maskedChannels_->at("det0").end();
     mtk = mtk && std::find( dut_maskedChannels_->at("det1").begin(), dut_maskedChannels_->at("det1").end(), xtkdutStrip1) == dut_maskedChannels_->at("det1").end();
+#ifdef MAY_16
     mtk = mtk && xtkdutStrip0 > 127 && xtkdutStrip1 > 127;
+#endif
     return mtk;
   }
   return true;
@@ -386,12 +393,12 @@ void BeamAnaBase::getExtrapolatedTracks(std::vector<tbeam::Track>&  fidTkColl) {
   Utility::cutTrackFei4Residuals(fei4Ev(), tkNoOv, selectedTk, alPars_.offsetFEI4x(), alPars_.offsetFEI4y(), alPars_.residualSigmaFEI4x(), alPars_.residualSigmaFEI4y(), true); 
   for(unsigned int itrk = 0; itrk<selectedTk.size();itrk++) {
     //do track fei4 matching
-    //double XTkatDUT0_itrk = selectedTk[itrk].xPos + (alPars_.d0_chi2_min_z-alPars_.FEI4_z)*selectedTk[itrk].dxdz;
-    //XTkatDUT0_itrk = XTkatDUT0_itrk + alPars_.d0_Offset_aligned;
-    //double XTkatDUT1_itrk = selectedTk[itrk].xPos + (alPars_.d1_chi2_min_z-alPars_.FEI4_z)*selectedTk[itrk].dxdz;
-    //XTkatDUT1_itrk = XTkatDUT1_itrk + alPars_.d1_Offset_aligned;
     double YTkatDUT0_itrk = selectedTk[itrk].yPos + (alPars_.d0Z() - alPars_.FEI4z())*selectedTk[itrk].dydz;
     double YTkatDUT1_itrk = selectedTk[itrk].yPos + (alPars_.d1Z() - alPars_.FEI4z())*selectedTk[itrk].dydz;
+#ifdef OCT_16
+    YTkatDUT0_itrk = selectedTk[itrk].xPos + (alPars_.d0Z() - alPars_.FEI4z())*selectedTk[itrk].dxdz;
+    YTkatDUT1_itrk = selectedTk[itrk].xPos + (alPars_.d1Z() - alPars_.FEI4z())*selectedTk[itrk].dxdz;
+#endif
     std::pair<double,double>  xtkdut = Utility::extrapolateTrackAtDUTwithAngles(selectedTk[itrk], 
                                        alPars_.FEI4z(), alPars_.d0Offset(), alPars_.d0Z(), 
                                        alPars_.deltaZ(), alPars_.theta());

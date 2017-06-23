@@ -40,7 +40,9 @@ class AlignmentMultiDimAnalysis : public BeamAnaBase {
   std::string runNumber_;
   std::string outFile_;
   Histogrammer* hist_;
+  int run_;
   unsigned long int nEntries_;
+  unsigned long int maxEvent;
   bool isProduction_;
   std::string alignparFile_; 
   float zMin;

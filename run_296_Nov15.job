@@ -1,0 +1,17 @@
+#START
+Run=296
+#inputFile=/Volumes/Elements/AnalysisTuple/AnalysisTree_296.root
+inputFile=AnalysisTree/Nov15/AnalysisTree_296.root 
+outputFile=Nov15Scratch/BaselineOutput/v2/bOutput_296_v2.root
+fei4Z=684
+readAlignmentFromfile=1
+doTelescopeMatching=1
+doChannelMasking=0
+channelMaskFile=chmask.txt
+residualSigmaDUT=0.026
+nStrips=1016
+pitchDUT=0.09
+#only needed by Alignment Analysis
+isProductionmode=1
+alignmentOutputFile=alignmentparOutput_Nov15.txt
+#END

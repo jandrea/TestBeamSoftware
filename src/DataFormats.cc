@@ -70,6 +70,7 @@ tbeam::cbc::cbc():
 
 tbeam::cluster::cluster():
    x(0),
+   fx(0.),
    size(0)
 {
 }
@@ -79,6 +80,7 @@ tbeam::cluster::~cluster(){
 
 tbeam::stub::stub():
    x(0),
+   fx(0.),
    direction(0)
 {
    seeding = new tbeam::cluster();
@@ -90,6 +92,7 @@ tbeam::stub::stub(const tbeam::stub& t)
   seeding = new tbeam::cluster(*(t.seeding));
   matched = new tbeam::cluster(*(t.matched));
   x = t.x;
+  fx = t.fx;
   direction = t.direction;
 }
 
@@ -120,6 +123,10 @@ tbeam::dutEvent::dutEvent(const tbeam::dutEvent& t)
   for(auto& sp : t.stubs) {
     tbeam::stub* ss = new tbeam::stub(*sp);
     stubs.push_back(ss);
+  }
+  for(auto& sp : t.fstubs) {
+    tbeam::stub* ss = new tbeam::stub(*sp);
+    fstubs.push_back(ss);
   }
   stubWord = t.stubWord;
   stubWordReco = t.stubWordReco;

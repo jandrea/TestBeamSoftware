@@ -1,0 +1,15 @@
+Run=296:offsetFEI4X=-3.81952:offsetFEI4Y=-0.840817:residualSigmaFEI4X=0.0294963:residualSigmaFEI4Y=0.136473:zD0=1400.87:offsetD0=39.0826:deltaZ=1.95966:angle=0.0414154
+Run=297:offsetFEI4X=-3.83058:offsetFEI4Y=-0.8795:residualSigmaFEI4X=0.0297388:residualSigmaFEI4Y=0.137151:zD0=1406.14:offsetD0=32.9909:deltaZ=1.8533:angle=0.0481575
+Run=299:offsetFEI4X=-3.77404:offsetFEI4Y=-0.887888:residualSigmaFEI4X=0.0300488:residualSigmaFEI4Y=0.138321:zD0=1405.39:offsetD0=16.8705:deltaZ=2.31059:angle=0.0527942
+Run=300:offsetFEI4X=-3.83155:offsetFEI4Y=-0.853949:residualSigmaFEI4X=0.034182:residualSigmaFEI4Y=0.149486:zD0=1404.59:offsetD0=5.34183:deltaZ=2.5031:angle=0.0596108
+Run=302:offsetFEI4X=-3.82254:offsetFEI4Y=-0.876425:residualSigmaFEI4X=0.0277753:residualSigmaFEI4Y=0.129027:zD0=1400:offsetD0=0.836241:deltaZ=2.65:angle=0.0547509
+Run=303:offsetFEI4X=-3.81055:offsetFEI4Y=-0.898573:residualSigmaFEI4X=0.0280529:residualSigmaFEI4Y=0.131226:zD0=1400:offsetD0=-8.97076:deltaZ=2.65:angle=0.0552034
+Run=305:offsetFEI4X=-3.82214:offsetFEI4Y=-0.891994:residualSigmaFEI4X=0.0308662:residualSigmaFEI4Y=0.14062:zD0=1398.83:offsetD0=-16.1644:deltaZ=2.38279:angle=0.0523149
+Run=306:offsetFEI4X=-3.84106:offsetFEI4Y=-0.878912:residualSigmaFEI4X=0.0324522:residualSigmaFEI4Y=0.144371:zD0=1407.52:offsetD0=-25.1823:deltaZ=2.45446:angle=0.0595622
+Run=307:offsetFEI4X=-3.81852:offsetFEI4Y=-0.83464:residualSigmaFEI4X=0.0277773:residualSigmaFEI4Y=0.131138:zD0=1400:offsetD0=-32.7671:deltaZ=2.65:angle=0.0594529
+Run=312:offsetFEI4X=-3.84065:offsetFEI4Y=-0.874016:residualSigmaFEI4X=0.0352194:residualSigmaFEI4Y=0.151324:zD0=1408.65:offsetD0=-40.706:deltaZ=2.35045:angle=0.0508829
+Run=317:offsetFEI4X=-3.81468:offsetFEI4Y=-0.890527:residualSigmaFEI4X=0.027591:residualSigmaFEI4Y=0.131534:zD0=1391.84:offsetD0=-2.76692:deltaZ=2.30252:angle=0.0482756
+Run=318:offsetFEI4X=-3.83355:offsetFEI4Y=-0.821615:residualSigmaFEI4X=0.0366653:residualSigmaFEI4Y=0.154751:zD0=1405.11:offsetD0=-2.80458:deltaZ=2.72184:angle=0.0595651
+Run=319:offsetFEI4X=-3.81756:offsetFEI4Y=-0.89055:residualSigmaFEI4X=0.027851:residualSigmaFEI4Y=0.129125:zD0=1403.75:offsetD0=-2.77588:deltaZ=2.58042:angle=0.0554629
+Run=321:offsetFEI4X=-3.82724:offsetFEI4Y=-0.835636:residualSigmaFEI4X=0.0290958:residualSigmaFEI4Y=0.134947:zD0=1413.9:offsetD0=-2.79652:deltaZ=1.70507:angle=0.0554503
+Run=299:offsetFEI4X=-3.77404:offsetFEI4Y=-0.887888:residualSigmaFEI4X=0.0300488:residualSigmaFEI4Y=0.138321:zD0=1405.39:offsetD0=16.8705:deltaZ=2.31059:angle=0.0527942
